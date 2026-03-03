@@ -10,17 +10,17 @@ mod spatial;
 #[pymodule]
 fn _rust_core(m: &Bound<'_, PyModule>) -> PyResult<()> {
     // Geometry submodule
-    let geometry_mod = PyModule::new(m.py(), "geometry")?;
+    let geometry_mod = PyModule::new_bound(m.py(), "geometry")?;
     geometry::register_geometry_module(&geometry_mod)?;
     m.add_submodule(&geometry_mod)?;
 
     // Spatial submodule
-    let spatial_mod = PyModule::new(m.py(), "spatial")?;
+    let spatial_mod = PyModule::new_bound(m.py(), "spatial")?;
     spatial::register_spatial_module(&spatial_mod)?;
     m.add_submodule(&spatial_mod)?;
 
     // Lattice submodule
-    let lattice_mod = PyModule::new(m.py(), "lattice")?;
+    let lattice_mod = PyModule::new_bound(m.py(), "lattice")?;
     lattice::register_lattice_module(&lattice_mod)?;
     m.add_submodule(&lattice_mod)?;
 

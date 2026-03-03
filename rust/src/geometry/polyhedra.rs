@@ -5,8 +5,9 @@
 //! Used for cage wireframe visualisation, subunit placement, and cavity shape
 //! reference.
 
-use numpy::PyArray2;
+use numpy::{PyArray2, ndarray::Array2};
 use pyo3::prelude::*;
+#[allow(unused_imports)]
 use std::f64::consts::PI;
 
 /// Golden ratio φ = (1 + √5) / 2.
@@ -169,10 +170,9 @@ pub fn get_polyhedron_vertices<'py>(
         flat[i * 3 + 2] = v[2] * scale;
     }
 
-    let result = PyArray2::from_vec(py, &flat)
-        .reshape([n, 3])
+    let arr = Array2::from_shape_vec((n, 3), flat)
         .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?;
-    Ok(result.to_owned())
+    Ok(PyArray2::from_owned_array_bound(py, arr))
 }
 
 /// Get face connectivity of a Platonic solid.

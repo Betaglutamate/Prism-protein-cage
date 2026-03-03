@@ -1,6 +1,6 @@
 //! KD-tree based spatial queries — clash detection and contact finding.
 
-use numpy::{PyArray2, PyReadonlyArray2};
+use numpy::{PyArray2, PyReadonlyArray2, ndarray::Array2};
 use pyo3::prelude::*;
 use kiddo::KdTree;
 use kiddo::SquaredEuclidean;
@@ -55,10 +55,8 @@ pub fn clash_check<'py>(
 
     let n_clashes = clashes.len();
     if n_clashes == 0 {
-        let empty = PyArray2::from_vec(py, &vec![0.0f64; 0])
-            .reshape([0, 3])
-            .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?;
-        return Ok(empty.to_owned());
+        let arr = Array2::<f64>::zeros((0, 3));
+        return Ok(PyArray2::from_owned_array_bound(py, arr));
     }
 
     let mut flat = vec![0.0f64; n_clashes * 3];
@@ -68,10 +66,9 @@ pub fn clash_check<'py>(
         flat[i * 3 + 2] = c[2];
     }
 
-    let result = PyArray2::from_vec(py, &flat)
-        .reshape([n_clashes, 3])
+    let arr = Array2::from_shape_vec((n_clashes, 3), flat)
         .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?;
-    Ok(result.to_owned())
+    Ok(PyArray2::from_owned_array_bound(py, arr))
 }
 
 /// Find all contacts between two sets of coordinates within a cutoff distance.

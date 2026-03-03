@@ -1,6 +1,6 @@
 //! Coordinate transforms — RMSD, superposition (Kabsch algorithm), centering.
 
-use numpy::{PyArray1, PyArray2, PyReadonlyArray2};
+use numpy::{PyArray2, PyReadonlyArray2, ndarray::Array2};
 use pyo3::prelude::*;
 
 /// Compute centroid of an (N, 3) coordinate array.
@@ -179,10 +179,9 @@ pub fn superpose<'py>(
         result[i * 3 + 2] = rot[2][0] * x + rot[2][1] * y + rot[2][2] * z + tgt_c[2];
     }
 
-    let coords_out = PyArray2::from_vec(py, &result)
-        .reshape([n, 3])
-        .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?
-        .to_owned();
+    let coords_out = PyArray2::from_owned_array_bound(py,
+        Array2::from_shape_vec((n, 3), result)
+            .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?);
 
     let mut rot_flat = vec![0.0f64; 9];
     for i in 0..3 {
@@ -190,10 +189,9 @@ pub fn superpose<'py>(
             rot_flat[i * 3 + j] = rot[i][j];
         }
     }
-    let rot_out = PyArray2::from_vec(py, &rot_flat)
-        .reshape([3, 3])
-        .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?
-        .to_owned();
+    let rot_out = PyArray2::from_owned_array_bound(py,
+        Array2::from_shape_vec((3, 3), rot_flat)
+            .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?);
 
     Ok((coords_out, rot_out, rmsd))
 }

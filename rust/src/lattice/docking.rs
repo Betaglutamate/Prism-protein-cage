@@ -1,6 +1,6 @@
 //! Interface contact enumeration for docking analysis.
 
-use numpy::{PyArray2, PyReadonlyArray2};
+use numpy::{PyArray2, PyReadonlyArray2, ndarray::Array2};
 use pyo3::prelude::*;
 use kiddo::KdTree;
 use kiddo::SquaredEuclidean;
@@ -56,10 +56,8 @@ pub fn enumerate_interface_contacts<'py>(
 
     let n = contacts.len();
     if n == 0 {
-        let empty = PyArray2::from_vec(py, &vec![0.0f64; 0])
-            .reshape([0, 3])
-            .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?;
-        return Ok(empty.to_owned());
+        let arr = Array2::<f64>::zeros((0, 3));
+        return Ok(PyArray2::from_owned_array_bound(py, arr));
     }
 
     let mut flat = vec![0.0f64; n * 3];
@@ -69,8 +67,7 @@ pub fn enumerate_interface_contacts<'py>(
         flat[i * 3 + 2] = c[2];
     }
 
-    let result = PyArray2::from_vec(py, &flat)
-        .reshape([n, 3])
+    let arr = Array2::from_shape_vec((n, 3), flat)
         .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?;
-    Ok(result.to_owned())
+    Ok(PyArray2::from_owned_array_bound(py, arr))
 }

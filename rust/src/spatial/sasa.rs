@@ -5,6 +5,8 @@
 
 use numpy::{PyArray1, PyReadonlyArray1, PyReadonlyArray2};
 use pyo3::prelude::*;
+#[allow(unused_imports)]
+use numpy::ndarray::Array1;
 use rayon::prelude::*;
 use std::f64::consts::PI;
 
@@ -101,7 +103,7 @@ pub fn compute_sasa<'py>(
         })
         .collect();
 
-    Ok(PyArray1::from_vec(py, &sasa).to_owned())
+    Ok(PyArray1::from_vec_bound(py, sasa))
 }
 
 #[cfg(test)]

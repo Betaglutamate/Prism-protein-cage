@@ -4,7 +4,7 @@
 //! Uses Monte Carlo integration to estimate cavity volume and identifies
 //! residues whose Cα atoms face the interior of a protein cage.
 
-use numpy::{PyArray1, PyArray2, PyReadonlyArray1, PyReadonlyArray2};
+use numpy::{PyArray1, PyReadonlyArray1, PyReadonlyArray2};
 use pyo3::prelude::*;
 use rand::Rng;
 use rayon::prelude::*;
@@ -165,7 +165,7 @@ pub fn compute_cavity_volume<'py>(
     };
     let volume = sphere_vol * void_fraction;
 
-    let dict = pyo3::types::PyDict::new(py);
+    let dict = pyo3::types::PyDict::new_bound(py);
     dict.set_item("volume_angstrom3", volume)?;
     dict.set_item("inscribed_radius", inscribed_r)?;
     dict.set_item("void_fraction", void_fraction)?;
@@ -240,7 +240,7 @@ pub fn find_interior_residues<'py>(
         }
     }
 
-    Ok(PyArray1::from_vec(py, &interior).to_owned())
+    Ok(PyArray1::from_vec_bound(py, interior))
 }
 
 #[cfg(test)]

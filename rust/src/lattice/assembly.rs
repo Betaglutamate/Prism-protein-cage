@@ -3,7 +3,7 @@
 //! Given a unit cell (cage coordinates + orientation) and lattice vectors,
 //! generates the full lattice by translation.
 
-use numpy::{PyArray2, PyReadonlyArray2};
+use numpy::{PyArray2, PyReadonlyArray2, ndarray::Array2};
 use pyo3::prelude::*;
 use rayon::prelude::*;
 
@@ -86,10 +86,9 @@ pub fn build_lattice<'py>(
             }
         });
 
-    let result_arr = PyArray2::from_vec(py, &result)
-        .reshape([total_atoms, 3])
+    let arr = Array2::from_shape_vec((total_atoms, 3), result)
         .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?;
-    Ok(result_arr.to_owned())
+    Ok(PyArray2::from_owned_array_bound(py, arr))
 }
 
 #[cfg(test)]

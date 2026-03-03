@@ -4,7 +4,7 @@
 //! for the chiral tetrahedral (12 ops), octahedral (24 ops), and icosahedral
 //! (60 ops) point groups used in protein cage design.
 
-use numpy::{PyArray2, PyReadonlyArray2};
+use numpy::{PyArray2, PyReadonlyArray2, ndarray::Array2};
 use pyo3::prelude::*;
 use rayon::prelude::*;
 use std::f64::consts::PI;
@@ -161,10 +161,9 @@ pub fn get_symmetry_operations<'py>(
         }
     }
 
-    let result = PyArray2::from_vec(py, &flat)
-        .reshape([n * 3, 3])
+    let arr = Array2::from_shape_vec((n * 3, 3), flat)
         .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?;
-    Ok(result.to_owned())
+    Ok(PyArray2::from_owned_array_bound(py, arr))
 }
 
 /// Get minimal generator set for a symmetry group.
@@ -219,10 +218,9 @@ pub fn get_group_generators<'py>(
         }
     }
 
-    let result = PyArray2::from_vec(py, &flat)
-        .reshape([n * 3, 3])
+    let arr = Array2::from_shape_vec((n * 3, 3), flat)
         .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?;
-    Ok(result.to_owned())
+    Ok(PyArray2::from_owned_array_bound(py, arr))
 }
 
 /// Apply symmetry operations to a set of atomic coordinates.
@@ -279,10 +277,9 @@ pub fn apply_symmetry_ops<'py>(
             }
         });
 
-    let result_arr = PyArray2::from_vec(py, &result)
-        .reshape([total, 3])
+    let arr = Array2::from_shape_vec((total, 3), result)
         .map_err(|e| pyo3::exceptions::PyRuntimeError::new_err(e.to_string()))?;
-    Ok(result_arr.to_owned())
+    Ok(PyArray2::from_owned_array_bound(py, arr))
 }
 
 #[cfg(test)]
