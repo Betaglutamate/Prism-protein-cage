@@ -1,0 +1,17 @@
+[package]
+name = "prism-core"
+version = "0.1.0"
+edition = "2021"
+description = "High-performance geometry kernels for PRISM protein cage design"
+
+[lib]
+name = "_rust_core"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.22", features = ["extension-module"] }
+numpy = "0.22"
+nalgebra = "0.33"
+rayon = "1.10"
+kiddo = "4.2"
+rand = "0.8"

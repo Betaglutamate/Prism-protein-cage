@@ -1,0 +1,50 @@
+[build-system]
+requires = ["maturin>=1.5,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "prism"
+version = "0.1.0"
+description = "Programmable protein cages as a universal nanocrystal manufacturing platform"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "PRISM Team" },
+]
+dependencies = [
+    "numpy>=1.24",
+    "biopython>=1.83",
+    "gemmi>=0.6",
+    "py3Dmol>=2.0",
+    "typer>=0.9",
+    "pydantic>=2.0",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "maturin>=1.5",
+    "ruff>=0.3",
+]
+notebooks = [
+    "jupyter>=1.0",
+    "ipywidgets>=8.0",
+]
+
+[project.scripts]
+prism = "prism.cli.main:app"
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+python-source = "python"
+module-name = "prism._rust_core"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
