@@ -1,0 +1,93 @@
+{
+  "pipeline": "PRISM \u00d7 RFdiffusion2",
+  "symmetry": "T",
+  "n_subunits": 12,
+  "model": "RFD_140.pt",
+  "n_designs": 4,
+  "designs": [
+    {
+      "idx": 0,
+      "subunit_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/rfd2_cage_results/subunit_0.pdb",
+      "assembly_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/rfd2_cage_results/cage_assembly_0.pdb",
+      "n_residues": 100,
+      "metrics": {
+        "rog_A": 15.1,
+        "inner_radius_A": 1.8,
+        "outer_radius_A": 33.6,
+        "mean_radius_A": 13.8,
+        "cavity_diameter_nm": 0.4,
+        "min_contact_dist_A": 0.5,
+        "max_contact_dist_A": 1.3,
+        "n_close_interfaces": 66,
+        "total_atoms": 6000,
+        "total_residues": 1200,
+        "prism_cavity_volume_A3": 141441.3101590711,
+        "prism_inscribed_radius_A": 2.266988320265284e-05,
+        "clashes_2A": 268
+      }
+    },
+    {
+      "idx": 1,
+      "subunit_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/rfd2_cage_results/subunit_1.pdb",
+      "assembly_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/rfd2_cage_results/cage_assembly_1.pdb",
+      "n_residues": 100,
+      "metrics": {
+        "rog_A": 13.2,
+        "inner_radius_A": 1.5,
+        "outer_radius_A": 21.9,
+        "mean_radius_A": 12.5,
+        "cavity_diameter_nm": 0.3,
+        "min_contact_dist_A": 0.3,
+        "max_contact_dist_A": 1.2,
+        "n_close_interfaces": 66,
+        "total_atoms": 6000,
+        "total_residues": 1200,
+        "prism_cavity_volume_A3": 28058.13536769014,
+        "prism_inscribed_radius_A": 2.5587114627523277e-05,
+        "clashes_2A": 354
+      }
+    },
+    {
+      "idx": 2,
+      "subunit_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/rfd2_cage_results/subunit_2.pdb",
+      "assembly_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/rfd2_cage_results/cage_assembly_2.pdb",
+      "n_residues": 100,
+      "metrics": {
+        "rog_A": 14.5,
+        "inner_radius_A": 2.3,
+        "outer_radius_A": 28.8,
+        "mean_radius_A": 13.5,
+        "cavity_diameter_nm": 0.5,
+        "min_contact_dist_A": 0.2,
+        "max_contact_dist_A": 1.5,
+        "n_close_interfaces": 66,
+        "total_atoms": 6000,
+        "total_residues": 1200,
+        "prism_cavity_volume_A3": 82485.47336041552,
+        "prism_inscribed_radius_A": 2.3600796614786645e-06,
+        "clashes_2A": 351
+      }
+    },
+    {
+      "idx": 3,
+      "subunit_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/rfd2_cage_results/subunit_3.pdb",
+      "assembly_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/rfd2_cage_results/cage_assembly_3.pdb",
+      "n_residues": 100,
+      "metrics": {
+        "rog_A": 12.6,
+        "inner_radius_A": 2.2,
+        "outer_radius_A": 19.6,
+        "mean_radius_A": 12.1,
+        "cavity_diameter_nm": 0.4,
+        "min_contact_dist_A": 0.2,
+        "max_contact_dist_A": 1.1,
+        "n_close_interfaces": 66,
+        "total_atoms": 6000,
+        "total_residues": 1200,
+        "prism_cavity_volume_A3": 17189.187367835166,
+        "prism_inscribed_radius_A": 3.181168756860586e-06,
+        "clashes_2A": 426
+      }
+    }
+  ]
+}

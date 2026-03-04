@@ -1,0 +1,7 @@
+{
+  "num_recycles": 3,
+  "design_iterations": 50,
+  "soft_iterations": 25,
+  "hard_iterations": 5,
+  "use_multimer": true
+}

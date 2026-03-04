@@ -1,0 +1,6 @@
+{
+  "pae_interaction_cutoff": 10.0,
+  "plddt_cutoff": 70.0,
+  "iptm_cutoff": 0.5,
+  "clash_cutoff": 1.0
+}

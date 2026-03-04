@@ -1,0 +1,6 @@
+{
+  "target_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/bindcraft/subunit_pair_AB.pdb",
+  "target_chain": "A",
+  "target_hotspot_residues": "73,76,77,78,79,80,81,82,83,84,85,86,87,88,128,131",
+  "binder_length": "40-70"
+}

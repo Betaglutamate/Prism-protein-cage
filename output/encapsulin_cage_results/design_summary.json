@@ -1,0 +1,96 @@
+{
+  "pipeline": "Encapsulin-Inspired \u00d7 RFdiffusion2 \u00d7 PRISM",
+  "inspiration": "Magnetotactic bacteria encapsulins (HK97-fold)",
+  "reference_pdb": "3DKT (T. maritima, T=1, 60-mer, 24nm)",
+  "symmetry": "T",
+  "n_subunits": 12,
+  "cage_radius_A": 50.0,
+  "model": "RFD_140.pt",
+  "n_designs": 4,
+  "designs": [
+    {
+      "idx": 0,
+      "subunit_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/encapsulin_cage_results/subunit_0.pdb",
+      "assembly_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/encapsulin_cage_results/cage_assembly_0.pdb",
+      "n_residues": 200,
+      "metrics": {
+        "rog_A": 52.6,
+        "inner_radius_A": 33.4,
+        "outer_radius_A": 69.6,
+        "mean_radius_A": 52.0,
+        "cavity_diameter_nm": 6.7,
+        "min_contact_dist_A": 6.5,
+        "max_contact_dist_A": 63.0,
+        "n_close_interfaces": 6,
+        "total_atoms": 12000,
+        "total_residues": 2400,
+        "prism_cavity_volume_A3": 1365073.2471464244,
+        "prism_void_fraction": 0.9648043796958036,
+        "clashes_2A": 0
+      }
+    },
+    {
+      "idx": 1,
+      "subunit_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/encapsulin_cage_results/subunit_1.pdb",
+      "assembly_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/encapsulin_cage_results/cage_assembly_1.pdb",
+      "n_residues": 200,
+      "metrics": {
+        "rog_A": 54.0,
+        "inner_radius_A": 20.1,
+        "outer_radius_A": 79.7,
+        "mean_radius_A": 51.4,
+        "cavity_diameter_nm": 4.0,
+        "min_contact_dist_A": 3.9,
+        "max_contact_dist_A": 38.2,
+        "n_close_interfaces": 30,
+        "total_atoms": 12000,
+        "total_residues": 2400,
+        "prism_cavity_volume_A3": 2070846.5947640797,
+        "prism_void_fraction": 0.9767727748211381,
+        "clashes_2A": 0
+      }
+    },
+    {
+      "idx": 2,
+      "subunit_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/encapsulin_cage_results/subunit_2.pdb",
+      "assembly_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/encapsulin_cage_results/cage_assembly_2.pdb",
+      "n_residues": 200,
+      "metrics": {
+        "rog_A": 52.6,
+        "inner_radius_A": 32.0,
+        "outer_radius_A": 67.7,
+        "mean_radius_A": 51.7,
+        "cavity_diameter_nm": 6.4,
+        "min_contact_dist_A": 9.4,
+        "max_contact_dist_A": 64.8,
+        "n_close_interfaces": 6,
+        "total_atoms": 12000,
+        "total_residues": 2400,
+        "prism_cavity_volume_A3": 1249347.3436223452,
+        "prism_void_fraction": 0.9626943123802837,
+        "clashes_2A": 0
+      }
+    },
+    {
+      "idx": 3,
+      "subunit_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/encapsulin_cage_results/subunit_3.pdb",
+      "assembly_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/encapsulin_cage_results/cage_assembly_3.pdb",
+      "n_residues": 200,
+      "metrics": {
+        "rog_A": 52.9,
+        "inner_radius_A": 22.1,
+        "outer_radius_A": 71.2,
+        "mean_radius_A": 51.6,
+        "cavity_diameter_nm": 4.4,
+        "min_contact_dist_A": 10.1,
+        "max_contact_dist_A": 45.8,
+        "n_close_interfaces": 0,
+        "total_atoms": 12000,
+        "total_residues": 2400,
+        "prism_cavity_volume_A3": 1459656.8717717777,
+        "prism_void_fraction": 0.9672315648841812,
+        "clashes_2A": 0
+      }
+    }
+  ]
+}

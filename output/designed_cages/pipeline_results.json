@@ -1,0 +1,292 @@
+{
+  "pipeline": "LigandMPNN \u00d7 BindCraft \u00d7 PRISM",
+  "timestamp": "2026-03-03 16:17:51",
+  "n_designs": 4,
+  "mpnn_model": "ligand_mpnn (s25_r010_t300_p.pt)",
+  "mpnn_temperature": 0.1,
+  "cage_radius_A": 50.0,
+  "n_subunits": 12,
+  "designs": [
+    {
+      "idx": 0,
+      "cage_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/encapsulin_cage_results/cage_assembly_0.pdb",
+      "display_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/mpnn/packed/cage_assembly_0_packed_1_1.pdb",
+      "n_residues": 200,
+      "cage_metrics": {
+        "rog_A": 52.6,
+        "inner_radius_A": 33.4,
+        "outer_radius_A": 69.6,
+        "mean_radius_A": 52.0,
+        "cavity_diameter_nm": 6.7,
+        "min_contact_dist_A": 6.5,
+        "max_contact_dist_A": 63.0,
+        "n_close_interfaces": 6,
+        "total_atoms": 12000,
+        "total_residues": 2400,
+        "prism_cavity_volume_A3": 1365073.2471464244,
+        "prism_void_fraction": 0.9648043796958036,
+        "clashes_2A": 0
+      },
+      "mpnn_metrics": {
+        "id": 3.0,
+        "T": 0.1,
+        "seed": 42.0,
+        "overall_confidence": 0.4389,
+        "ligand_confidence": 1.0,
+        "seq_rec": 0.305
+      },
+      "best_sequence": "VEREIRRAMERCLPDLLKAEVVVVILNGVDLDTQGEAFDILTRELVRAIREAKAANPDRKIHVLIAVSAALTCVRALREYGGRGGVERAAAKAAEVAAKMAAAFEAVGATTRTVVLTAATQAAVDYAEANPDASLDDILAVANAAAAGEIAAEAAAIIRATGAKRLLILSNDTALACAQAVAAQITADEGVEVTVHSLPL",
+      "all_sequences": [
+        "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "VEREIRRAMERCLPDLLKAEVVVVILNGVDLDTQGEAFDILTRELVRAIREAKAANPDRKIHVLIAVSAALTCVRALREYGGRGGVERAAAKAAEVAAKMAAAFEAVGATTRTVVLTAATQAAVDYAEANPDASLDDILAVANAAAADEIAAEAAAIIRATGAKRLLILSNDTALACAQAVAARITAEEGVEVTVHSLPL",
+        "VEREIRRAMERCLPDLLKAEVVVVILNGVDLDTQGEAFDILTRELVRAIREAKAANPDRKIHVLIAVSAALTCVRALREYGGRGGVERAAAKAAEVAAKMAAAFEAVGATTRTVVLTAATQAAVDYAEANPDASLDDILAVANAAAAGEIAAEAAAIIRATGAKRLLILSNDTALACAQAVAAQITADEGVEVTVHSLPL",
+        "MEREIREAMRAMLPDLEKAEVVVVLLAGVDAATQGAAFATLTAELVAAVREALAANPDRKISVLVAVSAAVAVVDALRAHGGAGGLDAAAASAAAVAAAMAAALEAAGCDTRTLVLREATAAALAYAQAHPDASLDDILAVANAAAAGQIYEAAAKIIKENGAKRCLILSNDRALGCARAVAARLTADEGVEVTVHSIPL",
+        "MEREIREAMRAMLPDLEKAEVVVILLAGVDAATQGAAFATLTAELVAAVREALAANPDRKISVLVAVSAAVAVVDALRAHGGAGGLDAAAASAAAVAAAMAAALEAAGCDTRTLVLREATAAALAYAQAHPDASLDDILAVANAAAAGQIYEAAAKIIKENGAKRCLILSNDRALGCARAVAARLTADEGVEVTVHSIPL"
+      ],
+      "mpnn_packed_pdbs": [
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/mpnn/packed/cage_assembly_0_packed_1_1.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/mpnn/packed/cage_assembly_0_packed_2_1.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/mpnn/packed/cage_assembly_0_packed_3_1.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/mpnn/packed/cage_assembly_0_packed_4_1.pdb"
+      ],
+      "mpnn_backbone_pdbs": [
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/mpnn/backbones/cage_assembly_0_1.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/mpnn/backbones/cage_assembly_0_2.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/mpnn/backbones/cage_assembly_0_3.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/mpnn/backbones/cage_assembly_0_4.pdb"
+      ],
+      "interface_residues": [
+        73,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        128,
+        131
+      ],
+      "n_interface_residues": 16,
+      "bindcraft_status": "failed",
+      "bindcraft_result": {
+        "status": "failed",
+        "returncode": 1,
+        "log_tail": "Traceback (most recent call last):\n  File \"/home/markzurbruegg/library-design/BindCraft/bindcraft.py\", line 5, in <module>\n    from functions import *\n  File \"/home/markzurbruegg/library-design/BindCraft/functions/__init__.py\", line 6, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n"
+      }
+    },
+    {
+      "idx": 1,
+      "cage_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/encapsulin_cage_results/cage_assembly_1.pdb",
+      "display_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_1/mpnn/packed/cage_assembly_1_packed_1_1.pdb",
+      "n_residues": 200,
+      "cage_metrics": {
+        "rog_A": 54.0,
+        "inner_radius_A": 20.1,
+        "outer_radius_A": 79.7,
+        "mean_radius_A": 51.4,
+        "cavity_diameter_nm": 4.0,
+        "min_contact_dist_A": 3.9,
+        "max_contact_dist_A": 38.2,
+        "n_close_interfaces": 30,
+        "total_atoms": 12000,
+        "total_residues": 2400,
+        "prism_cavity_volume_A3": 2070846.5947640797,
+        "prism_void_fraction": 0.9767727748211381,
+        "clashes_2A": 0
+      },
+      "mpnn_metrics": {
+        "id": 1.0,
+        "T": 0.1,
+        "seed": 42.0,
+        "overall_confidence": 0.3881,
+        "ligand_confidence": 1.0,
+        "seq_rec": 0.28
+      },
+      "best_sequence": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "all_sequences": [
+        "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "MMGGAREGLAELERAATEAAAAEIVAAEVRARVLALLERLLAALRTSPEEAREVAREAARHARLIEELAALANPALAAALAVDRDALRTAVDLLESLSPEELETFGRVLAEEAARLAAEREASPLEVFRAALDRLAAEKGFPEERIAAARELLDATERLRAEVAADAARLAATPAGGRRGLLEAGLTPEQLALLARLRAA",
+        "MMGGAREGLAELERAATEAAAAEIVAAEVRALVLRLLEELLAALRTSPEEAREVARRAREHARLIEELAALANPALAAALAVDRDALRTAVDLLESLSPEELETFGRVLAEEAARLAAEREASPLDVFAAALDRLAAEKGFPEERIAAARELLDATRRLRAEVAADRERLAATPAGGRRGLLEAGLTPEQLALLARLRAA",
+        "MRGGAEEGLEALRRAEIQRRAADIVYAEVAAKVLRLLQEALEALRTSPAELRRVAERMRKAAELIERLMALSDPYLAEKLAVARDALQTAVDLVESLSDAQLETLGRTFAEERERAAAEAEKSLLDVFEAALDRLAAEHGLPEDLVAQARELLARLRELEAEVAENAKVLAAMPEGGRRGLLEAGLSPEQLALLAEFLAA",
+        "MRGGAEEGLEALRRAEIQRRAADIVYAEVAAKVLRLLQEALEALRTSPAELRRVAERMRKAAELIERLMALSDPYLAEKLAVARDALQTAVDLVESLSDAQLETLGRTFAEERERAAAEAEKSLLDVFEAALDRLAAEHGLPEDLVAQARELLARLRELEAEVAENAKVLAAMPEGGRRGLLEAGLSPEQLALLAEFLAA"
+      ],
+      "mpnn_packed_pdbs": [
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_1/mpnn/packed/cage_assembly_1_packed_1_1.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_1/mpnn/packed/cage_assembly_1_packed_2_1.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_1/mpnn/packed/cage_assembly_1_packed_3_1.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_1/mpnn/packed/cage_assembly_1_packed_4_1.pdb"
+      ],
+      "mpnn_backbone_pdbs": [
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_1/mpnn/backbones/cage_assembly_1_1.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_1/mpnn/backbones/cage_assembly_1_2.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_1/mpnn/backbones/cage_assembly_1_3.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_1/mpnn/backbones/cage_assembly_1_4.pdb"
+      ],
+      "interface_residues": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        183,
+        184
+      ],
+      "n_interface_residues": 26,
+      "bindcraft_status": "failed",
+      "bindcraft_result": {
+        "status": "failed",
+        "returncode": 1,
+        "log_tail": "Traceback (most recent call last):\n  File \"/home/markzurbruegg/library-design/BindCraft/bindcraft.py\", line 5, in <module>\n    from functions import *\n  File \"/home/markzurbruegg/library-design/BindCraft/functions/__init__.py\", line 6, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n"
+      }
+    },
+    {
+      "idx": 2,
+      "cage_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/encapsulin_cage_results/cage_assembly_2.pdb",
+      "display_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_2/mpnn/packed/cage_assembly_2_packed_1_1.pdb",
+      "n_residues": 200,
+      "cage_metrics": {
+        "rog_A": 52.6,
+        "inner_radius_A": 32.0,
+        "outer_radius_A": 67.7,
+        "mean_radius_A": 51.7,
+        "cavity_diameter_nm": 6.4,
+        "min_contact_dist_A": 9.4,
+        "max_contact_dist_A": 64.8,
+        "n_close_interfaces": 6,
+        "total_atoms": 12000,
+        "total_residues": 2400,
+        "prism_cavity_volume_A3": 1249347.3436223452,
+        "prism_void_fraction": 0.9626943123802837,
+        "clashes_2A": 0
+      },
+      "mpnn_metrics": {
+        "id": 4.0,
+        "T": 0.1,
+        "seed": 42.0,
+        "overall_confidence": 0.3668,
+        "ligand_confidence": 1.0,
+        "seq_rec": 0.265
+      },
+      "best_sequence": "RRQAEMLDIALAIMGAQLELALLKREDERAAARERMRAELERLFAEAGLAVANARAGMAATRVLRAPGTPAGVAALRAWWAARRAELRARAAATSGVLAACEAAAAVIEAQIRRARADEPREVSVEVILSDDFVTVVALSLPAEEHAERYGSLGFAVSICDAAHAAEARALLDELEAACVAAGIGTFISTLIVLTEPRRE",
+      "all_sequences": [
+        "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "RRVEERMEICLAIMGRQIEIALLEREEERERALEEMREELRRLFAEAGYAEEDADAGMAARRILRAKGTPAGVERLRAWLDERFARLDALRAAVSGVPALEDEAAAEIAAQIAAARSGEPTTIRVRVIASDDFVLAVAASLPDVSLAEKYGSRLFSVAICDAAHAAEAQALLDELEAAAVAAGISTYISTLITLTRPRRV",
+        "RRVEERMEICLAIMGRQIEIALLEREEERERALEEMREELRRLFAEAGYAEEDADAGMAARRILRAKGTPAGVERLRAWLDERFARLDALRAAVSGVPALEDEAAAEIAAQIAAARSGEPTTIRVRVIASDDFVLAVAASLPDVSLAEKYGSRLFSVAICDAAHAAEAQALLDELEAAAVAAGISTYISTLITLTRPRRV",
+        "RRQAEMLDIALAIMGAQLELALLKREDERAAARERMRAELERLFAEAGLAVANARAGMAATRVLRAPGTPAGVAALRAWWAARRAELRARAAATSGVLAACEAAAAVIEAQIRRARADEPREVSVEVILSDDFVTVVALSLPAEEHAERYGSLGFAVSICDAAHAAEARALLDELEAACVAAGIGTFISTLIVLTEPRRE",
+        "RRQAEMLDIALAIMGAQLELALLKREDERAAARERMRAELERLFAEAGLAVANARAGMAATRVLRAPGTPAGVAALRAWWAARRAELRARAAATSGVLAACEAAAAVIEAQIRRARADEPREVSVEVILSDDFVVVVALSLPAEEHAERYGSLGFAVAICDAAHAAEARALLDELEAACVAAGIGTFISTLIVLTEPRRE"
+      ],
+      "mpnn_packed_pdbs": [
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_2/mpnn/packed/cage_assembly_2_packed_1_1.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_2/mpnn/packed/cage_assembly_2_packed_2_1.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_2/mpnn/packed/cage_assembly_2_packed_3_1.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_2/mpnn/packed/cage_assembly_2_packed_4_1.pdb"
+      ],
+      "mpnn_backbone_pdbs": [
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_2/mpnn/backbones/cage_assembly_2_1.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_2/mpnn/backbones/cage_assembly_2_2.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_2/mpnn/backbones/cage_assembly_2_3.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_2/mpnn/backbones/cage_assembly_2_4.pdb"
+      ],
+      "interface_residues": [
+        11,
+        12,
+        15,
+        25,
+        26,
+        27,
+        103,
+        107,
+        108,
+        111,
+        197,
+        198,
+        200
+      ],
+      "n_interface_residues": 13,
+      "bindcraft_status": "failed",
+      "bindcraft_result": {
+        "status": "failed",
+        "returncode": 1,
+        "log_tail": "Traceback (most recent call last):\n  File \"/home/markzurbruegg/library-design/BindCraft/bindcraft.py\", line 5, in <module>\n    from functions import *\n  File \"/home/markzurbruegg/library-design/BindCraft/functions/__init__.py\", line 6, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n"
+      }
+    },
+    {
+      "idx": 3,
+      "cage_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/encapsulin_cage_results/cage_assembly_3.pdb",
+      "display_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_3/mpnn/packed/cage_assembly_3_packed_1_1.pdb",
+      "n_residues": 200,
+      "cage_metrics": {
+        "rog_A": 52.9,
+        "inner_radius_A": 22.1,
+        "outer_radius_A": 71.2,
+        "mean_radius_A": 51.6,
+        "cavity_diameter_nm": 4.4,
+        "min_contact_dist_A": 10.1,
+        "max_contact_dist_A": 45.8,
+        "n_close_interfaces": 0,
+        "total_atoms": 12000,
+        "total_residues": 2400,
+        "prism_cavity_volume_A3": 1459656.8717717777,
+        "prism_void_fraction": 0.9672315648841812,
+        "clashes_2A": 0
+      },
+      "mpnn_metrics": {
+        "id": 2.0,
+        "T": 0.1,
+        "seed": 42.0,
+        "overall_confidence": 0.3878,
+        "ligand_confidence": 1.0,
+        "seq_rec": 0.14
+      },
+      "best_sequence": "LLEERRAAEAARRARRLAWLGRLGGAGGLVGALAVLKVYPLLGLLLLALVLYLLYLASLERDPLLAGIILGVAGVLGMLGGIAASGKLYGAKTTVEQAADGRWRATHTFEEMTPEEIEELKERMKEVLDRLEETGDVEEVKAEVLDSLKETDSAVEWGKAVLLVLSLDRAEEMRAKGKSMEEIKEEIEKELDAILAGTKA",
+      "all_sequences": [
+        "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "LLEERRAAEAARRARRLAWLGRLGGAGGLVGALAVLKVYPLLGLLLLALVLYLLYLASLERDPLLAGIILGVAGVLGMLGGIAASGKLYGAKTTVEQAADGRWRATHTFEEMTPEEIEELKERMKEVLDRLEETGDVEEVKAEVLDSLKETDSAVEWGKAVLLVLSLDRAEEMRAKGKSMEEIKEEIEKELDAILAGTKA",
+        "LLEERRAAEAARRAARLARLGRLGGAGGLVGALAVLKVYPLLGLVLLALVLYLLYLASLERDPLLAGIILGVAGVLGMLGGIAASGKLYGARTRVTQAADGRWRAEHVFEEMTPEEIEELKERMKEVLDRLEETGDVEEVKAEVLDSLSDTSSAVEWGKAVLLVLSLDRAEEMRAKGKSMEEIKEEIEKELDAILAGTKA",
+        "EEEERARRLAEERAALLAELGRLGGAGGLVGALAMLKKYPLLGLVLLALVAYLLYLASLERDERLAGIILGVAGVLGMLAGILASGKLYGARTTVTRDALGRWRAEHEVVLATPEQIEELKEKMEKTLDKLEKTGDVEKVKAEVLRSLRPTDSAVRWGMAVVLVLSLDIAEEMKKKGMSMEEIKKKIKEILDKILAGTLA",
+        "EEEERARRLAEERAALLAELGRLGGAGGLVGALAMLKKYPLLGLALLALVAALLYLASLETDERLAGVILGVAGVLGMLAGILASGKLYGARTTVTRDALGRWRAEHEVVLATPEQIEELKEKMEKTLDKLEKTGDVEKVKAEVLRSLRPTDSAVRWGMAVVLVLSLDIAEEMKKKGMSMEEIKKKIKEILDKILAGTLA"
+      ],
+      "mpnn_packed_pdbs": [
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_3/mpnn/packed/cage_assembly_3_packed_1_1.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_3/mpnn/packed/cage_assembly_3_packed_2_1.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_3/mpnn/packed/cage_assembly_3_packed_3_1.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_3/mpnn/packed/cage_assembly_3_packed_4_1.pdb"
+      ],
+      "mpnn_backbone_pdbs": [
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_3/mpnn/backbones/cage_assembly_3_1.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_3/mpnn/backbones/cage_assembly_3_2.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_3/mpnn/backbones/cage_assembly_3_3.pdb",
+        "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_3/mpnn/backbones/cage_assembly_3_4.pdb"
+      ],
+      "interface_residues": [],
+      "n_interface_residues": 0,
+      "bindcraft_status": "skipped"
+    }
+  ]
+}
