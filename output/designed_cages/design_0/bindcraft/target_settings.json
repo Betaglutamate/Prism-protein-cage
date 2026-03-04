@@ -1,6 +1,12 @@
 {
-  "target_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/bindcraft/subunit_pair_AB.pdb",
-  "target_chain": "A",
-  "target_hotspot_residues": "73,76,77,78,79,80,81,82,83,84,85,86,87,88,128,131",
-  "binder_length": "40-70"
+  "design_path": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/bindcraft/designs",
+  "binder_name": "cage0_glue",
+  "starting_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/bindcraft/subunit_pair_AC.pdb",
+  "chains": "A",
+  "target_hotspot_residues": "72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,124,127",
+  "lengths": [
+    50,
+    80
+  ],
+  "number_of_final_designs": 50
 }

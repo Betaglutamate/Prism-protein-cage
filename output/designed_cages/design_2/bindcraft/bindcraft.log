@@ -1,6 +1,46 @@
+Available GPUs:
+NVIDIA L41: gpu
+┌───────────────────────────────────────────────────────────────────────────────┐
+│                                  PyRosetta-4                                  │
+│               Created in JHU by Sergey Lyskov and PyRosetta Team              │
+│               (C) Copyright Rosetta Commons Member Institutions               │
+│                                                                               │
+│ NOTE: USE OF PyRosetta FOR COMMERCIAL PURPOSES REQUIRES PURCHASE OF A LICENSE │
+│          See LICENSE.PyRosetta.md or email license@uw.edu for details         │
+└───────────────────────────────────────────────────────────────────────────────┘
+PyRosetta-4 2026 [Rosetta PyRosetta4.Release.python310.ubuntu 2026.06+release.e5a76a2dbd7e42e1271d0af460926c86e29e59d1 2026-02-02T18:21:37] retrieved from: http://www.pyrosetta.org
+Running binder design for target target_settings
+Design settings used: advanced_settings
+Filtering designs based on default_filters
+Starting trajectory: cage2_glue_l70_s623219
+2026-03-04 10:01:58.062640: W external/xla/xla/tsl/framework/bfc_allocator.cc:501] Allocator (GPU_0_bfc) ran out of memory trying to allocate 12.00MiB (rounded to 12582912)requested by op 
+2026-03-04 10:01:58.062774: W external/xla/xla/tsl/framework/bfc_allocator.cc:512] *________*******************************************************************************************
+E0304 10:01:58.062814   16082 pjrt_stream_executor_client.cc:2839] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 12582912 bytes. [tf-allocator-allocation-error='']
 Traceback (most recent call last):
-  File "/home/markzurbruegg/library-design/BindCraft/bindcraft.py", line 5, in <module>
-    from functions import *
-  File "/home/markzurbruegg/library-design/BindCraft/functions/__init__.py", line 6, in <module>
-    import numpy as np
-ModuleNotFoundError: No module named 'numpy'
+  File "/home/markzurbruegg/library-design/BindCraft/bindcraft.py", line 109, in <module>
+    trajectory = binder_hallucination(design_name, target_settings["starting_pdb"], target_settings["chains"],
+  File "/home/markzurbruegg/library-design/BindCraft/functions/colabdesign_utils.py", line 28, in binder_hallucination
+    af_model = mk_afdesign_model(protocol="binder", debug=False, data_dir=advanced_settings["af_params_dir"],
+  File "/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/colabdesign/af/model.py", line 120, in __init__
+    params = data.get_model_haiku_params(model_name=model_name, data_dir=data_dir, fuse=True)
+  File "/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/colabdesign/af/alphafold/model/data.py", line 41, in get_model_haiku_params
+    return utils.flat_params_to_haiku(params, fuse=fuse)
+  File "/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/colabdesign/af/alphafold/model/utils.py", line 95, in flat_params_to_haiku
+    P[scope][name] = jnp.array(array)
+  File "/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/numpy/lax_numpy.py", line 5548, in array
+    out_array: Array = lax_internal._convert_element_type(
+  File "/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/lax/lax.py", line 1727, in _convert_element_type
+    return convert_element_type_p.bind(
+  File "/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/core.py", line 496, in bind
+    return self._true_bind(*args, **params)
+  File "/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/core.py", line 512, in _true_bind
+    return self.bind_with_trace(prev_trace, args, params)
+  File "/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/lax/lax.py", line 4875, in _convert_element_type_bind_with_trace
+    operand = core.Primitive.bind_with_trace(convert_element_type_p, trace, args, params)
+  File "/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/core.py", line 517, in bind_with_trace
+    return trace.process_primitive(self, args, params)
+  File "/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/core.py", line 1017, in process_primitive
+    return primitive.impl(*args, **params)
+  File "/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/dispatch.py", line 89, in apply_primitive
+    outs = fun(*args)
+ValueError: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 12582912 bytes.

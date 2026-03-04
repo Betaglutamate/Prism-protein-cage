@@ -1,0 +1,52 @@
+======================================================================
+  BindCraft Glue Binder Design Pipeline
+  Designing binders to stabilise cage subunit interfaces
+======================================================================
+
+[1] Loaded 4 cage designs
+
+======================================================================
+  STEP 1: Interface Analysis & Target Preparation
+======================================================================
+
+  Design 0: cage_assembly_0.pdb
+    Closest pair: A–C (2.1 Å)
+    Interface residues (chain A): 22
+    Hotspots: [72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86]...
+    Extracted pair: subunit_pair_AC.pdb
+    Settings written
+
+  Design 1: cage_assembly_1.pdb
+    Closest pair: A–L (2.0 Å)
+    Interface residues (chain A): 8
+    Hotspots: [1, 2, 3, 4, 5, 6, 7, 8]
+    Extracted pair: subunit_pair_AL.pdb
+    Settings written
+
+  Design 2: cage_assembly_2.pdb
+    Closest pair: A–D (5.0 Å)
+    Interface residues (chain A): 5
+    Hotspots: [1, 197, 198, 199, 200]
+    Extracted pair: subunit_pair_AD.pdb
+    Settings written
+
+  Design 3: cage_assembly_3.pdb
+    Closest pair: A–D (6.5 Å)
+    Interface residues (chain A): 3
+    Hotspots: [56, 59, 61]
+    Extracted pair: subunit_pair_AD.pdb
+    Settings written
+
+  Total BindCraft jobs: 4
+
+======================================================================
+  STEP 2: Running BindCraft (4 jobs)
+======================================================================
+
+  [0] Running BindCraft for cage design 0
+      Target: A–C interface (2.1 Å)
+      Hotspots: 22 residues
+      Binder length: 50–80 residues
+      Designs: 50
+    CMD: /home/markzurbruegg/miniconda3/envs/BindCraft/bin/python /home/markzurbruegg/library-design/BindCraft/bindcraft.py --settings /home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/bindcraft/target_settings.json --filters /home/markzurbruegg/library-design/BindCraft/settings_filters/default_filters.json --advanced /home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/bindcraft/advanced_settings.json
+    Log: /home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/bindcraft/bindcraft.log

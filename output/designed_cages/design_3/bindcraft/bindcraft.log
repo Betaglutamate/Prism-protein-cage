@@ -1,0 +1,15 @@
+Available GPUs:
+NVIDIA L41: gpu
+┌───────────────────────────────────────────────────────────────────────────────┐
+│                                  PyRosetta-4                                  │
+│               Created in JHU by Sergey Lyskov and PyRosetta Team              │
+│               (C) Copyright Rosetta Commons Member Institutions               │
+│                                                                               │
+│ NOTE: USE OF PyRosetta FOR COMMERCIAL PURPOSES REQUIRES PURCHASE OF A LICENSE │
+│          See LICENSE.PyRosetta.md or email license@uw.edu for details         │
+└───────────────────────────────────────────────────────────────────────────────┘
+PyRosetta-4 2026 [Rosetta PyRosetta4.Release.python310.ubuntu 2026.06+release.e5a76a2dbd7e42e1271d0af460926c86e29e59d1 2026-02-02T18:21:37] retrieved from: http://www.pyrosetta.org
+Running binder design for target target_settings
+Design settings used: advanced_settings
+Filtering designs based on default_filters
+Starting trajectory: cage3_glue_l60_s297550

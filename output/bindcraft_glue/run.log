@@ -1,0 +1,122 @@
+======================================================================
+  BindCraft Glue Binder Design Pipeline
+  Designing binders to stabilise cage subunit interfaces
+======================================================================
+
+[1] Loaded 4 cage designs
+
+======================================================================
+  STEP 1: Interface Analysis & Target Preparation
+======================================================================
+
+  Design 0: cage_assembly_0.pdb
+    Closest pair: A–C (2.1 Å)
+    Interface residues (chain A): 22
+    Hotspots: [72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86]...
+    Extracted pair: subunit_pair_AC.pdb
+    Settings written
+
+  Design 1: cage_assembly_1.pdb
+    Closest pair: A–L (2.0 Å)
+    Interface residues (chain A): 8
+    Hotspots: [1, 2, 3, 4, 5, 6, 7, 8]
+    Extracted pair: subunit_pair_AL.pdb
+    Settings written
+
+  Design 2: cage_assembly_2.pdb
+    Closest pair: A–D (5.0 Å)
+    Interface residues (chain A): 5
+    Hotspots: [1, 197, 198, 199, 200]
+    Extracted pair: subunit_pair_AD.pdb
+    Settings written
+
+  Design 3: cage_assembly_3.pdb
+    Closest pair: A–D (6.5 Å)
+    Interface residues (chain A): 3
+    Hotspots: [56, 59, 61]
+    Extracted pair: subunit_pair_AD.pdb
+    Settings written
+
+  Total BindCraft jobs: 4
+
+======================================================================
+  STEP 2: Running BindCraft (4 jobs)
+======================================================================
+
+  [0] Running BindCraft for cage design 0
+      Target: A–C interface (2.1 Å)
+      Hotspots: 22 residues
+      Binder length: 50–80 residues
+      Designs: 50
+    CMD: /home/markzurbruegg/miniconda3/envs/BindCraft/bin/python /home/markzurbruegg/library-design/BindCraft/bindcraft.py --settings /home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/bindcraft/target_settings.json --filters /home/markzurbruegg/library-design/BindCraft/settings_filters/default_filters.json --advanced /home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/bindcraft/advanced_settings.json
+    Log: /home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/bindcraft/bindcraft.log
+    [WARN] BindCraft exited 1 after 0.3min
+    Log tail: ess_primitive
+    return primitive.impl(*args, **params)
+  File "/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/dispatch.py", line 89, in apply_primitive
+    outs = fun(*args)
+ValueError: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 12582912 bytes.
+
+      Result: failed
+
+  [1] Running BindCraft for cage design 1
+      Target: A–L interface (2.0 Å)
+      Hotspots: 8 residues
+      Binder length: 50–80 residues
+      Designs: 50
+    CMD: /home/markzurbruegg/miniconda3/envs/BindCraft/bin/python /home/markzurbruegg/library-design/BindCraft/bindcraft.py --settings /home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_1/bindcraft/target_settings.json --filters /home/markzurbruegg/library-design/BindCraft/settings_filters/default_filters.json --advanced /home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_1/bindcraft/advanced_settings.json
+    Log: /home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_1/bindcraft/bindcraft.log
+    [WARN] BindCraft exited 1 after 0.3min
+    Log tail: ess_primitive
+    return primitive.impl(*args, **params)
+  File "/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/dispatch.py", line 89, in apply_primitive
+    outs = fun(*args)
+ValueError: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 12582912 bytes.
+
+      Result: failed
+
+  [2] Running BindCraft for cage design 2
+      Target: A–D interface (5.0 Å)
+      Hotspots: 5 residues
+      Binder length: 50–80 residues
+      Designs: 50
+    CMD: /home/markzurbruegg/miniconda3/envs/BindCraft/bin/python /home/markzurbruegg/library-design/BindCraft/bindcraft.py --settings /home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_2/bindcraft/target_settings.json --filters /home/markzurbruegg/library-design/BindCraft/settings_filters/default_filters.json --advanced /home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_2/bindcraft/advanced_settings.json
+    Log: /home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_2/bindcraft/bindcraft.log
+    [WARN] BindCraft exited 1 after 0.3min
+    Log tail: ess_primitive
+    return primitive.impl(*args, **params)
+  File "/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/dispatch.py", line 89, in apply_primitive
+    outs = fun(*args)
+ValueError: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 12582912 bytes.
+
+      Result: failed
+
+  [3] Running BindCraft for cage design 3
+      Target: A–D interface (6.5 Å)
+      Hotspots: 3 residues
+      Binder length: 50–80 residues
+      Designs: 50
+    CMD: /home/markzurbruegg/miniconda3/envs/BindCraft/bin/python /home/markzurbruegg/library-design/BindCraft/bindcraft.py --settings /home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_3/bindcraft/target_settings.json --filters /home/markzurbruegg/library-design/BindCraft/settings_filters/default_filters.json --advanced /home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_3/bindcraft/advanced_settings.json
+    Log: /home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_3/bindcraft/bindcraft.log
+    [WARN] BindCraft exited -15 after 0.3min
+    Log tail: untu 2026.06+release.e5a76a2dbd7e42e1271d0af460926c86e29e59d1 2026-02-02T18:21:37] retrieved from: http://www.pyrosetta.org
+Running binder design for target target_settings
+Design settings used: advanced_settings
+Filtering designs based on default_filters
+Starting trajectory: cage3_glue_l60_s297550
+
+      Result: failed
+
+======================================================================
+  STEP 3: Scoring & Ranking
+======================================================================
+  Design 0: failed — no metrics
+  Design 1: failed — no metrics
+  Design 2: failed — no metrics
+  Design 3: failed — no metrics
+
+  Results saved: /home/markzurbruegg/test_run/code_base/prism/output/designed_cages/bindcraft_glue_results.json
+
+======================================================================
+  PIPELINE COMPLETE
+======================================================================

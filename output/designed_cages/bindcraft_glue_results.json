@@ -1,0 +1,135 @@
+{
+  "pipeline": "BindCraft Glue Binder Design",
+  "timestamp": "2026-03-04 10:02:15",
+  "n_jobs": 4,
+  "binder_lengths": [
+    50,
+    80
+  ],
+  "n_designs_per_job": 50,
+  "interface_cutoff_A": 8.0,
+  "results": [
+    {
+      "idx": 0,
+      "cage_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/encapsulin_cage_results/cage_assembly_0.pdb",
+      "pair_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/bindcraft/subunit_pair_AC.pdb",
+      "partner_chain": "C",
+      "interface_residues": [
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        124,
+        127,
+        128,
+        131
+      ],
+      "min_dist_A": 2.0536141312330316,
+      "settings": {
+        "target": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/bindcraft/target_settings.json",
+        "advanced": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/bindcraft/advanced_settings.json",
+        "filters": "/home/markzurbruegg/library-design/BindCraft/settings_filters/default_filters.json"
+      },
+      "bc_dir": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_0/bindcraft",
+      "bindcraft_result": {
+        "status": "failed",
+        "returncode": 1,
+        "elapsed_min": 0.27977269887924194,
+        "log_tail": " 517, in bind_with_trace\n    return trace.process_primitive(self, args, params)\n  File \"/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/core.py\", line 1017, in process_primitive\n    return primitive.impl(*args, **params)\n  File \"/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/dispatch.py\", line 89, in apply_primitive\n    outs = fun(*args)\nValueError: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 12582912 bytes.\n"
+      }
+    },
+    {
+      "idx": 1,
+      "cage_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/encapsulin_cage_results/cage_assembly_1.pdb",
+      "pair_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_1/bindcraft/subunit_pair_AL.pdb",
+      "partner_chain": "L",
+      "interface_residues": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "min_dist_A": 1.9935608844477266,
+      "settings": {
+        "target": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_1/bindcraft/target_settings.json",
+        "advanced": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_1/bindcraft/advanced_settings.json",
+        "filters": "/home/markzurbruegg/library-design/BindCraft/settings_filters/default_filters.json"
+      },
+      "bc_dir": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_1/bindcraft",
+      "bindcraft_result": {
+        "status": "failed",
+        "returncode": 1,
+        "elapsed_min": 0.2524777253468831,
+        "log_tail": " 517, in bind_with_trace\n    return trace.process_primitive(self, args, params)\n  File \"/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/core.py\", line 1017, in process_primitive\n    return primitive.impl(*args, **params)\n  File \"/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/dispatch.py\", line 89, in apply_primitive\n    outs = fun(*args)\nValueError: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 12582912 bytes.\n"
+      }
+    },
+    {
+      "idx": 2,
+      "cage_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/encapsulin_cage_results/cage_assembly_2.pdb",
+      "pair_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_2/bindcraft/subunit_pair_AD.pdb",
+      "partner_chain": "D",
+      "interface_residues": [
+        1,
+        197,
+        198,
+        199,
+        200
+      ],
+      "min_dist_A": 4.998735140012919,
+      "settings": {
+        "target": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_2/bindcraft/target_settings.json",
+        "advanced": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_2/bindcraft/advanced_settings.json",
+        "filters": "/home/markzurbruegg/library-design/BindCraft/settings_filters/default_filters.json"
+      },
+      "bc_dir": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_2/bindcraft",
+      "bindcraft_result": {
+        "status": "failed",
+        "returncode": 1,
+        "elapsed_min": 0.2541487018267314,
+        "log_tail": " 517, in bind_with_trace\n    return trace.process_primitive(self, args, params)\n  File \"/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/core.py\", line 1017, in process_primitive\n    return primitive.impl(*args, **params)\n  File \"/home/markzurbruegg/miniconda3/envs/BindCraft/lib/python3.10/site-packages/jax/_src/dispatch.py\", line 89, in apply_primitive\n    outs = fun(*args)\nValueError: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 12582912 bytes.\n"
+      }
+    },
+    {
+      "idx": 3,
+      "cage_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/encapsulin_cage_results/cage_assembly_3.pdb",
+      "pair_pdb": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_3/bindcraft/subunit_pair_AD.pdb",
+      "partner_chain": "D",
+      "interface_residues": [
+        56,
+        59,
+        61
+      ],
+      "min_dist_A": 6.526513770766138,
+      "settings": {
+        "target": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_3/bindcraft/target_settings.json",
+        "advanced": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_3/bindcraft/advanced_settings.json",
+        "filters": "/home/markzurbruegg/library-design/BindCraft/settings_filters/default_filters.json"
+      },
+      "bc_dir": "/home/markzurbruegg/test_run/code_base/prism/output/designed_cages/design_3/bindcraft",
+      "bindcraft_result": {
+        "status": "failed",
+        "returncode": -15,
+        "elapsed_min": 0.28093504508336387,
+        "log_tail": "E.PyRosetta.md or email license@uw.edu for details         \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\nPyRosetta-4 2026 [Rosetta PyRosetta4.Release.python310.ubuntu 2026.06+release.e5a76a2dbd7e42e1271d0af460926c86e29e59d1 2026-02-02T18:21:37] retrieved from: http://www.pyrosetta.org\nRunning binder design for target target_settings\nDesign settings used: advanced_settings\nFiltering designs based on default_filters\nStarting trajectory: cage3_glue_l60_s297550\n"
+      }
+    }
+  ]
+}
