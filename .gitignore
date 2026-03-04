@@ -1,5 +1,6 @@
 # Python
 __pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 *.egg-info/
@@ -34,6 +35,12 @@ Thumbs.db
 
 # PRISM project outputs
 *.tar.gz
+
+# Intermediate / test output directories
+output/cage_design/
+output/rfd2_test/
+output/mpnn_test/
+output/**/unidealized/
 
 # pytest
 .pytest_cache/
