@@ -8,6 +8,21 @@ backbone generation, BindCraft for interface design, and ProteinMPNN for sequenc
 optimisation — all tied together with a high-performance Rust geometry core and
 interactive 3D visualisation.
 
+## 🧬 Live Design Demo
+
+> **[▶ View Interactive Cage Designs](https://betaglutamate.github.io/Prism-protein-cage/output/designed_cages/cage_design_viewer.html)**
+
+An interactive 3D viewer showing all four encapsulin-inspired 12-subunit cage designs
+produced by the full pipeline (RFdiffusion2 → LigandMPNN → BindCraft). Each subunit
+chain is independently coloured; designs can be rotated and inspected in the browser.
+
+| Design | Cavity Ø | Shell | MPNN Conf |
+|--------|----------|-------|-----------|
+| Design 0 | ~10 nm | ~50 Å | see viewer |
+| Design 1 | ~10 nm | ~50 Å | see viewer |
+| Design 2 | ~10 nm | ~50 Å | see viewer |
+| Design 3 | ~10 nm | ~50 Å | see viewer |
+
 ## Three Tunable Parameters
 
 1. **Interior Geometry** — Controls nanocrystal size (5–20 nm cavities)
