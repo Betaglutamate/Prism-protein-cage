@@ -165,27 +165,25 @@ def generate():
     designs = load_design_info()
 
     # ── Gather binder PDB data ──────────────────────────────────────────
-    # Use the 2-subunit pair (AC) as binder context — much smaller than full cage
-    # while still showing the interface where the binder was designed to bind.
-    subunit_pair = OUTPUT / "design_0" / "bindcraft" / "subunit_pair_AC.pdb"
+    # Merge binder onto full 12-chain cage so the complete 3D context is visible.
+    cage0_packed = OUTPUT / "design_0" / "mpnn" / "packed" / "cage_assembly_0_packed_1_1.pdb"
 
     all_binders = {}   # name -> {"merged_pdb": str, "meta": dict}
     for name, meta in BINDER_METRICS.items():
         folder = RELAXED_DIR if meta["category"] == "Relaxed" else LOWCONF_DIR
         binder_path = folder / f"{name}.pdb"
-        if binder_path.exists() and subunit_pair.exists():
-            # Merge: subunit_pair (chains A,C) + binder chain B renamed to M
-            merged = merge_binder_with_pair(subunit_pair, binder_path, "M")
+        if binder_path.exists() and cage0_packed.exists():
+            merged = merge_cage_plus_binder(cage0_packed, binder_path, "M")
             all_binders[name] = {"merged_pdb": merged, "meta": meta}
         else:
             print(f"  [skip] {name} — file missing")
 
-    # ── For each design, collect 2 packed variant PDBs (v1 + v3 for variety) ──
+    # ── For each design, collect all 4 packed variant PDBs ──────────────────
     design_variants = {}  # idx -> list of (label, pdb_text)
     for d in designs:
         idx = d["idx"]
         variants = []
-        for v in [1, 3]:  # Show 2 variants for diversity, keep file size reasonable
+        for v in range(1, 5):
             p = OUTPUT / f"design_{idx}" / "mpnn" / "packed" / f"cage_assembly_{idx}_packed_{v}_1.pdb"
             if p.exists():
                 variants.append((f"MPNN v{v}", p.read_text()))
@@ -305,7 +303,7 @@ def build_html(designs, design_variants, all_binders):
   <strong>Interface targeting</strong>: Hotspot residues 72&ndash;89, 124, 127 on the A&ndash;C subunit interface (contact distance &lt;2.1&nbsp;&Aring;).
   BindCraft ran AF2 hallucination to design a peptide that bridges two adjacent cage subunits.
   <em>iPTM &lt; 0.5 indicates early-stage designs — these are initial trajectories; &Delta;G and shape complementarity are the primary quality filters.</em><br>
-  Viewer shows the two target subunits (A = <span style="color:#FF6B6B">&#x25A0;</span> red, C = <span style="color:#45B7D1">&#x25A0;</span> blue) and the designed glue binder (<span style="color:#FFD700">&#x25A0;</span> gold).
+  Viewer shows the full 12-subunit cage (muted, rainbow chains A–L) with the designed glue binder (<span style=\"color:#FFD700\">&#x25A0;</span> gold chain M) docked at the A–C interface.
 </div>
 """)
 
@@ -401,11 +399,17 @@ function showDesign(idx) {
   document.getElementById('cage-tab-'+idx).classList.add('active');
 }
 function showVariant(design, vi) {
-  for(var v=0;v<2;v++){
+  for(var v=0;v<4;v++){
     var el=document.getElementById('vview-'+design+'-'+v);
     var tb=document.getElementById('vtab-'+design+'-'+v);
     if(el){el.style.display=(v===vi?'block':'none');}
     if(tb){tb.classList.toggle('active',v===vi);}
+  }
+  // Resize viewer so it fills the now-visible container
+  var key='cage_'+design+'_'+vi;
+  if(window.prismViewers&&window.prismViewers[key]){
+    window.prismViewers[key].resize();
+    window.prismViewers[key].render();
   }
 }
 function showBinder(idx) {
@@ -413,10 +417,17 @@ function showBinder(idx) {
   document.querySelectorAll('.binder-selector .sel-tab').forEach(function(b){b.classList.remove('active');});
   document.getElementById('binder-card-'+idx).style.display='block';
   document.getElementById('btab-'+idx).classList.add('active');
+  // Resize viewer so it fills the now-visible container
+  var key='binder_'+idx;
+  if(window.prismViewers&&window.prismViewers[key]){
+    window.prismViewers[key].resize();
+    window.prismViewers[key].render();
+  }
 }
 """)
 
     # Cage viewers
+    js_parts.append("window.prismViewers = {};")
     js_parts.append("document.addEventListener('DOMContentLoaded', function() {")
     for i, d in enumerate(designs):
         variants = design_variants.get(i, [])
@@ -426,6 +437,7 @@ function showBinder(idx) {
             js_parts.append(f"    var el = document.getElementById('cage_viewer_{i}_{vi}');")
             js_parts.append(f"    if (!el) return;")
             js_parts.append(f"    var viewer = $3Dmol.createViewer(el, {{backgroundColor: '#0d1117'}});")
+            js_parts.append(f"    window.prismViewers['cage_{i}_{vi}'] = viewer;")
             js_parts.append(f"    viewer.addModel('{pdb_esc}', 'pdb');")
             for ci in range(N_SUBUNITS):
                 chain = chr(65 + ci)
@@ -436,8 +448,7 @@ function showBinder(idx) {
             js_parts.append(f"    viewer.zoomTo(); viewer.render(); viewer.spin('y', 0.4);")
             js_parts.append(f"  }})();")
 
-    # Binder viewers — show 2-subunit pair (A, C) + binder (M)
-    PAIR_CHAIN_COLORS = {"A": CHAIN_COLORS[0], "C": CHAIN_COLORS[2]}
+    # Binder viewers — full 12-chain cage (muted) + gold binder chain M
     for bi, (bname, bdata) in enumerate(all_binders.items()):
         merged_pdb = bdata["merged_pdb"]
         pdb_esc = escape_pdb(merged_pdb)
@@ -445,10 +456,15 @@ function showBinder(idx) {
         js_parts.append(f"    var el = document.getElementById('binder_viewer_{bi}');")
         js_parts.append(f"    if (!el) return;")
         js_parts.append(f"    var viewer = $3Dmol.createViewer(el, {{backgroundColor: '#0d1117'}});")
+        js_parts.append(f"    window.prismViewers['binder_{bi}'] = viewer;")
         js_parts.append(f"    viewer.addModel('{pdb_esc}', 'pdb');")
-        js_parts.append(f"    viewer.setStyle({{chain: 'A'}}, {{cartoon: {{color: '{CHAIN_COLORS[0]}', opacity: 0.75}}}});")
-        js_parts.append(f"    viewer.setStyle({{chain: 'C'}}, {{cartoon: {{color: '{CHAIN_COLORS[2]}', opacity: 0.75}}}});")
-        # Binder chain M in gold, full opacity
+        for ci in range(N_SUBUNITS):
+            chain = chr(65 + ci)
+            color = CHAIN_COLORS[ci % len(CHAIN_COLORS)]
+            js_parts.append(
+                f"    viewer.setStyle({{chain: '{chain}'}}, "
+                f"{{cartoon: {{color: '{color}', opacity: 0.55}}}});")
+        # Binder chain M in gold, full opacity, slightly thicker
         js_parts.append(
             f"    viewer.setStyle({{chain: 'M'}}, "
             f"{{cartoon: {{color: '{BINDER_COLOR}', opacity: 1.0, thickness: 0.6}}}});")
@@ -570,13 +586,14 @@ body {
 
 /* ── 3Dmol viewers ───────────────────────────────────────────────── */
 .mol-viewer {
+  position: relative;
   width: 100%;
   height: 450px;
   border-radius: 8px;
   overflow: hidden;
   background: #0d1117;
 }
-.tall-viewer { height: 500px; }
+.tall-viewer { height: 520px; }
 
 /* ── Info column ─────────────────────────────────────────────────── */
 .cage-info-col h3 { margin: 0 0 8px; color: #e6edf3; font-size: 1rem; }
